@@ -1,5 +1,6 @@
 
 using Raylib_cs;
+using System.Numerics;
 
 class TerminalServices {
 
@@ -13,9 +14,14 @@ class TerminalServices {
         var ScreenWidth = 800;
         var RectangleSize = 50;
 
-        var PlayerRectangle = new Rectangle(ScreenWidth - (RectangleSize * 2), ScreenHeight - (RectangleSize * 2), RectangleSize, RectangleSize);
+        var playerPosition = new Vector2(ScreenWidth / 2, ScreenHeight / 2);
+        var playerMovementSpeed = 4;
+
+        var player
+
+        // var PlayerRectangle = new Rectangle(ScreenWidth - (RectangleSize * 2), ScreenHeight - (RectangleSize * 2), RectangleSize, RectangleSize);
         // var TargetRectangle = new Rectangle(100, 100, RectangleSize, RectangleSize);
-        var MovementSpeed = 10;
+        // var MovementSpeed = 10;
 
         // testing rock drawing
         // void DrawRectangleLines(int posX, int posY, int width, int height, Color color);
