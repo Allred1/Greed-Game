@@ -1,6 +1,8 @@
 Movement Class
+    {keyboard movement}
     (inherited by)
     Object class 
+        {p}
         (inherited by)
         - gems/rock class
         - Player class

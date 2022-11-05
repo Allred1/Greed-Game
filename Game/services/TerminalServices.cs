@@ -4,6 +4,7 @@ using Raylib_cs;
 class TerminalServices {
 
     Player player = new Player();
+    
 
 
     public void createBackground() {
@@ -15,6 +16,10 @@ class TerminalServices {
         var PlayerRectangle = new Rectangle(ScreenWidth - (RectangleSize * 2), ScreenHeight - (RectangleSize * 2), RectangleSize, RectangleSize);
         // var TargetRectangle = new Rectangle(100, 100, RectangleSize, RectangleSize);
         var MovementSpeed = 10;
+
+        // testing rock drawing
+        // void DrawRectangleLines(int posX, int posY, int width, int height, Color color);
+
         
 
         Raylib.InitWindow(ScreenWidth, ScreenHeight, "Greed");
@@ -44,14 +49,16 @@ class TerminalServices {
                 // if (Raylib.IsKeyDown(KeyboardKey.KEY_LEFT)) {
                 //     PlayerRectangle.x -= MovementSpeed;
                 // }
-        
-
 
 
                 if (Raylib.IsKeyDown(KeyboardKey.KEY_LEFT)) {
                     PlayerRectangle.x -= MovementSpeed;
                 }
 
+               
+
+
+    //  no need for "up/down" keys to move the player icon
                 // if (Raylib.IsKeyDown(KeyboardKey.KEY_UP)) {
                 //     PlayerRectangle.y -= MovementSpeed;
                 // }
@@ -66,6 +73,7 @@ class TerminalServices {
         //         if (Raylib.CheckCollisionRecs(PlayerRectangle, TargetRectangle)) {
         //             Raylib.DrawText("You did it!!!!", 12, 34, 20, Color.BLACK);
         //         }
+
         // We'll be checking for collisions with the rocks and gems, and with conditional statements determine what happens to the score. 
 
                 Raylib.EndDrawing();
