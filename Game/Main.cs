@@ -4,10 +4,9 @@ class Greed {
 
     static void Main(string[] args) {
 
-        // Directory directory = new Directory();
         TerminalServices terminalServices = new TerminalServices();
 
-        // // directory.testing();
+        // call main terminal services method to execute the display
         terminalServices.createBackground();
     }
 }

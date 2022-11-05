@@ -2,7 +2,7 @@ using Raylib_cs;
 using System.Numerics;
 
 
-class Object {
+class GameObject {
     public Vector2 Position { get; set; } = new Vector2(0, 0);
     public Vector2 Velocity { get; set; } = new Vector2(0, 0);
 

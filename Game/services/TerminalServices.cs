@@ -3,35 +3,30 @@ using Raylib_cs;
 using System.Numerics;
 
 class TerminalServices {
-
-    Player player = new Player();
-    
-
+  
 
     public void createBackground() {
 
+        int score = 0;
+
         var ScreenHeight = 480;
         var ScreenWidth = 800;
-        var RectangleSize = 50;
+        var RectangleSize = 50;      
 
-        var playerPosition = new Vector2(ScreenWidth / 2, ScreenHeight / 2);
-        var playerMovementSpeed = 4;
-
-        // var player
-
-        // var PlayerRectangle = new Rectangle(ScreenWidth - (RectangleSize * 2), ScreenHeight - (RectangleSize * 2), RectangleSize, RectangleSize);
-        // var TargetRectangle = new Rectangle(100, 100, RectangleSize, RectangleSize);
+        var PlayerRectangle = new Rectangle(ScreenWidth - (RectangleSize * 2), ScreenHeight - (RectangleSize * 2), RectangleSize, RectangleSize);
+        // var PlayerSquare = new 
         // var MovementSpeed = 10;
 
-        // testing rock drawing
-        // void DrawRectangleLines(int posX, int posY, int width, int height, Color color);
+        var position = new Vector2(ScreenWidth / 2, ScreenHeight - 2);
 
+        var player = new PlayerIcon(ScreenWidth / 2, ScreenHeight - 2, Color.GREEN, 10);
+        player.Position = position; 
+        var playerMovementSpeed = 10;
+        // player.Velocity = new Vector2(random)
         
 
         Raylib.InitWindow(ScreenWidth, ScreenHeight, "Greed");
         Raylib.SetTargetFPS(60);
-
-
 
 
         while (!Raylib.WindowShouldClose())
@@ -39,46 +34,22 @@ class TerminalServices {
                 Raylib.BeginDrawing();
                 Raylib.ClearBackground(Color.BLACK);
 
-        //         Raylib.DrawText("Move the red square to the blue square with the arrow keys!", 12, 12, 20, Color.BLACK);
-    
-
+                Raylib.DrawText($"Score: {score}", 10, 2, 15, Color.WHITE);
 
 
                 if (Raylib.IsKeyDown(KeyboardKey.KEY_RIGHT)) {
-                    PlayerRectangle.x += MovementSpeed;
+                    player.x += playerMovementSpeed;
                 }
-
-                // if (Raylib.IsKeyDown(KeyboardKey.KEY_RIGHT)) {
-                //     player.Draw().x += MovementSpeed;
-                // }
-
-                // if (Raylib.IsKeyDown(KeyboardKey.KEY_LEFT)) {
-                //     PlayerRectangle.x -= MovementSpeed;
-                // }
-
 
                 if (Raylib.IsKeyDown(KeyboardKey.KEY_LEFT)) {
-                    PlayerRectangle.x -= MovementSpeed;
+                    player.x -= playerMovementSpeed;
                 }
 
-               
-
-
-    //  no need for "up/down" keys to move the player icon
-                // if (Raylib.IsKeyDown(KeyboardKey.KEY_UP)) {
-                //     PlayerRectangle.y -= MovementSpeed;
-                // }
-
-                // if (Raylib.IsKeyDown(KeyboardKey.KEY_DOWN)) {
-                //     PlayerRectangle.y += MovementSpeed;
-                // }
-
-        //         Raylib.DrawRectangleRec(TargetRectangle, Color.BLUE);
+        
                 Raylib.DrawRectangleRec(PlayerRectangle, Color.RED);
 
         //         if (Raylib.CheckCollisionRecs(PlayerRectangle, TargetRectangle)) {
-        //             Raylib.DrawText("You did it!!!!", 12, 34, 20, Color.BLACK);
-        //         }
+        
 
         // We'll be checking for collisions with the rocks and gems, and with conditional statements determine what happens to the score. 
 
