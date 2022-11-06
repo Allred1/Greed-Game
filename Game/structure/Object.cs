@@ -15,11 +15,22 @@ class GameObject {
 
     // movement 
     public void Move() {
+        // var MovementSpeed = 10;
         Vector2 NewPosition = this.Position;
         NewPosition.X += Velocity.X;
         NewPosition.Y += Velocity.Y;
         Position = NewPosition;
+
+        // if (Raylib.IsKeyDown(KeyboardKey.KEY_RIGHT)) {
+        //     NewPosition.X += MovementSpeed;
+        // }
+
+        // if (Raylib.IsKeyDown(KeyboardKey.KEY_LEFT)) {
+        //     NewPosition.X -= MovementSpeed;
+        // }
     }
+
+    
 
 
     // color

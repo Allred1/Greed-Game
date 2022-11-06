@@ -7,7 +7,7 @@ class PlayerIcon: GameObject {
 
     public int Size { get; set; }
 
-    public PlayerIcon(float x, float y, Color color, int size) {
+    public PlayerIcon(Color color, int size) {
         Size = size;        
     }
 
