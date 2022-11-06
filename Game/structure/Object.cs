@@ -21,11 +21,21 @@ class ObjectClass {
         NewPosition.Y += Velocity.Y;
         Position = NewPosition;
     }
+}
 
 
+class Color: Object {
     // color
     public Color Color { get; set; }
     public void ColoredObject(Color color) {
         Color = color;
     }    
+
 }
+
+//     // color
+//     public Color Color { get; set; }
+//     public void ColoredObject(Color color) {
+//         Color = color;
+//     }    
+// }
