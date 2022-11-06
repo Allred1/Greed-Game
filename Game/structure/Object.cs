@@ -24,18 +24,17 @@ class ObjectClass {
 }
 
 
-class Color: Object {
+class ColoredObject: ObjectClass {
     // color
     public Color Color { get; set; }
-    public void ColoredObject(Color color) {
+    public ColoredObject(Color color) {
         Color = color;
     }    
-
 }
 
 //     // color
 //     public Color Color { get; set; }
-//     public void ColoredObject(Color color) {
+//     public Color(Color color) {
 //         Color = color;
 //     }    
 // }

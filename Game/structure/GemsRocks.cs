@@ -1,11 +1,11 @@
 using Raylib_cs;
 
 
-class Gems: ObjectClass {
+class Gems: ColoredObject {
     
     public int Size { get; set; }
 
-    public Gems(Color color, int size) {
+    public Gems(Color color, int size): base(color) {
         Size = size;
     }
 
@@ -15,10 +15,10 @@ class Gems: ObjectClass {
 }
 
 
-class Rocks: ObjectClass {
+class Rocks: ColoredObject {
     public int Size { get; set; }
 
-    public Rocks(Color color, int size) {
+    public Rocks(Color color, int size): base(color) {
         Size = size;
     }
 
