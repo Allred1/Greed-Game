@@ -3,7 +3,7 @@ using Raylib_cs;
 
 // player inherits object class
 // this creates the "#" player symbol to move
-class PlayerIcon: GameObject {
+class PlayerIcon: ObjectClass {
 
     public int Size { get; set; }
 

@@ -2,7 +2,7 @@ using Raylib_cs;
 using System.Numerics;
 
 
-class GameObject {
+class ObjectClass {
     public Vector2 Position { get; set; } = new Vector2(0, 0);
     public Vector2 Velocity { get; set; } = new Vector2(0, 0);
 
@@ -20,17 +20,7 @@ class GameObject {
         NewPosition.X += Velocity.X;
         NewPosition.Y += Velocity.Y;
         Position = NewPosition;
-
-        // if (Raylib.IsKeyDown(KeyboardKey.KEY_RIGHT)) {
-        //     NewPosition.X += MovementSpeed;
-        // }
-
-        // if (Raylib.IsKeyDown(KeyboardKey.KEY_LEFT)) {
-        //     NewPosition.X -= MovementSpeed;
-        // }
     }
-
-    
 
 
     // color
