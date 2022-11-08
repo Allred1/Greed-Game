@@ -14,7 +14,7 @@ class TerminalServices {
         int score = 0;
         var Random = new Random();
 
-        var RectangleSize = 50;      
+        var RectangleSize = 20;      
 
         var PlayerRectangle = new Rectangle(ScreenWidth - (RectangleSize * 2), ScreenHeight - (RectangleSize * 2), RectangleSize, RectangleSize);
         var MovementSpeed = 10;
@@ -42,7 +42,7 @@ class TerminalServices {
             // Randomly add gems and rocks objects
             var whichType = Random.Next(2);
             // Random velocity for gems and rocks
-            var randomY = Random.Next(2);
+            var randomY = Random.Next(3);
             var randomX = Random.Next(0);
             
             // start at the top of the screen
@@ -80,7 +80,7 @@ class TerminalServices {
             Raylib.DrawText($"Score: {score}", 20, 2, 15, Color.WHITE);   
 
 
-              if (Raylib.IsKeyDown(KeyboardKey.KEY_RIGHT)) {
+            if (Raylib.IsKeyDown(KeyboardKey.KEY_RIGHT)) {
                 PlayerRectangle.x += MovementSpeed;
             }
 
@@ -103,11 +103,21 @@ class TerminalServices {
 
 
             // i think this is adding a score-point for every point of every object the rectangle touches. This will have to be fixed. 
-            foreach (var obj in Objects) {
-                if (Raylib.CheckCollisionPointRec(obj.Position, PlayerRectangle)) {
-                    score += 1;
+            foreach (var obj in Objects.ToList()) {
+                if (obj == gem) {
+
                 }
-            }             
+                if (Raylib.CheckCollisionPointRec(rock.Position, PlayerRectangle)) {
+                    score -= 1;
+                    Objects.Remove(rock);
+                }
+            }    
+            foreach (var gem in Objects.ToList()) {
+                if (Raylib.CheckCollisionPointRec(gem.Position, PlayerRectangle)) {
+                    score += 1;
+                    Objects.Remove(gem);
+                }
+            }         
 
     
             Raylib.DrawRectangleRec(PlayerRectangle, Color.GREEN);
