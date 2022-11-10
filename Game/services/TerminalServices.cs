@@ -100,24 +100,27 @@ class TerminalServices {
             foreach (var obj in Objects) {
                 obj.Move();
             }
-
-
-            // i think this is adding a score-point for every point of every object the rectangle touches. This will have to be fixed. 
+            
+            // Remove the objects as they pass beyond a certain y-value
             foreach (var obj in Objects.ToList()) {
-                if (obj == gem) {
+                if (obj.Position.Y >= 460) {
+                    Objects.Remove(obj);
+                }
+            }
 
-                }
-                if (Raylib.CheckCollisionPointRec(rock.Position, PlayerRectangle)) {
-                    score -= 1;
-                    Objects.Remove(rock);
-                }
-            }    
-            foreach (var gem in Objects.ToList()) {
-                if (Raylib.CheckCollisionPointRec(gem.Position, PlayerRectangle)) {
-                    score += 1;
-                    Objects.Remove(gem);
-                }
-            }         
+            // i think this is adding a score-point for every point of every object the rectangle touches. This will have to be fixed.             
+            // foreach (var rock in Objects.ToList()) {
+            //     if (Raylib.CheckCollisionPointRec(rock.Position, PlayerRectangle)) {
+            //         score -= 1;
+            //         Objects.Remove(rock);
+            //     }
+            // }    
+            // foreach (var gem in Objects.ToList()) {
+            //     if (Raylib.CheckCollisionPointRec(gem.Position, PlayerRectangle)) {
+            //         score += 1;
+            //         Objects.Remove(gem);
+            //     }
+            // }         
 
     
             Raylib.DrawRectangleRec(PlayerRectangle, Color.GREEN);
