@@ -14,23 +14,11 @@ class TerminalServices {
         int score = 0;
         var Random = new Random();
 
-        var RectangleSize = 20;      
 
-        var PlayerRectangle = new Rectangle(ScreenWidth - (RectangleSize * 2), ScreenHeight - (RectangleSize * 2), RectangleSize, RectangleSize);
+        // configure the player icon
+        var playerPosition = new Vector2(ScreenWidth / 2, ScreenHeight - 30);
         var MovementSpeed = 10;
-
-
-        // var position = new Vector2((ScreenWidth / 2), (ScreenHeight - 2));
-        // var player = new PlayerIcon(Color.WHITE, 50);
-        // player.Position = position; 
-        // var playerMovementSpeed = 10;
         
-        // player.Velocity = new Vector2(random)
-        // var Objects = new List<GameObject>();
-        // var Random = new Random();
-        // var randomY = Random.Next(2);
-        // var randomX = Random.Next(0);
-
 
         Raylib.InitWindow(ScreenWidth, ScreenHeight, "Greed");
         Raylib.SetTargetFPS(60);
@@ -38,7 +26,9 @@ class TerminalServices {
 
         while (!Raylib.WindowShouldClose())
         {
+            // make a list of colors
             var colorsList = new List<ColoredObject>();
+            
             // Randomly add gems and rocks objects
             var whichType = Random.Next(2);
             // Random velocity for gems and rocks
@@ -48,6 +38,7 @@ class TerminalServices {
             // start at the top of the screen
             var startAtTop = ScreenHeight - ScreenHeight - 30;
             var position = new Vector2(Random.Next(ScreenWidth), startAtTop);
+            
 
             switch (whichType) {
                 case 0: 
@@ -68,24 +59,19 @@ class TerminalServices {
                     break;
             }
 
-            // var text = new PlayerIcon(Color.WHITE, 50);
-            // text.Position = position;
-            // text.Velocity = new Vector2(randomX, randomY);
-            // Objects.Add(text);
 
             Raylib.BeginDrawing();
             Raylib.ClearBackground(Color.BLACK);
-
 
             Raylib.DrawText($"Score: {score}", 20, 2, 15, Color.WHITE);   
 
 
             if (Raylib.IsKeyDown(KeyboardKey.KEY_RIGHT)) {
-                PlayerRectangle.x += MovementSpeed;
+                playerPosition.X += MovementSpeed;
             }
 
             if (Raylib.IsKeyDown(KeyboardKey.KEY_LEFT)) {
-                PlayerRectangle.x -= MovementSpeed;
+                playerPosition.X -= MovementSpeed;
             }
 
 
@@ -123,7 +109,9 @@ class TerminalServices {
             // }         
 
     
-            Raylib.DrawRectangleRec(PlayerRectangle, Color.GREEN);
+            // draw the Player         
+            Raylib.DrawText("#", (int)playerPosition.X, (int)playerPosition.Y, 25, Color.WHITE);
+            
 
 
             // We'll be checking for collisions with the rocks and gems, and with conditional statements determine what happens to the score.    
