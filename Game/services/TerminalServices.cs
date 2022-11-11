@@ -13,11 +13,12 @@ class TerminalServices {
         var Objects = new List<ObjectClass>();
         int score = 0;
         var Random = new Random();
+        var timerCounter = 0;
 
 
         // configure the player icon
-        var playerPosition = new Vector2(ScreenWidth / 2, ScreenHeight - 40);
-        var MovementSpeed = 10;
+        var playerPosition = new Vector2(ScreenWidth / 2, ScreenHeight - 45);
+        var MovementSpeed = 8;
 
 
         Raylib.InitWindow(ScreenWidth, ScreenHeight, "Greed");
@@ -40,21 +41,28 @@ class TerminalServices {
             var startAtTop = ScreenHeight - ScreenHeight - 30;
             var position = new Vector2(Random.Next(ScreenWidth), startAtTop);
             
+            timerCounter += 1;
 
             switch (whichType) {
                 case 0: 
-                    Console.WriteLine("Creating a gem");
-                    var gem = new Gems(Color.RED, 25);
-                    gem.Position = position;
-                    gem.Velocity = new Vector2(randomX, randomY);
-                    Objects.Add(gem);
+                    if (timerCounter == 10) {
+                        Console.WriteLine("Creating a gem");
+                        var gem = new Gems(Color.RED, 25);
+                        gem.Position = position;
+                        gem.Velocity = new Vector2(randomX, randomY);
+                        Objects.Add(gem);
+                        timerCounter = 0;
+                    }
                     break;
                 case 1: 
-                    Console.WriteLine("Creating a rock");
-                    var rock = new Rocks(Color.WHITE, 25);
-                    rock.Position = position;
-                    rock.Velocity = new Vector2(randomX, randomY);
-                    Objects.Add(rock);
+                    if (timerCounter == 10) {
+                        Console.WriteLine("Creating a rock");
+                        var rock = new Rocks(Color.WHITE, 25);
+                        rock.Position = position;
+                        rock.Velocity = new Vector2(randomX, randomY);
+                        Objects.Add(rock);
+                        timerCounter = 0;
+                    }
                     break;
                 default:
                     break;
@@ -75,6 +83,7 @@ class TerminalServices {
                 playerPosition.X -= MovementSpeed;
             }
 
+            
 
             // begin the drawings of each of the objects
             foreach (var obj in Objects) {
@@ -128,7 +137,7 @@ class TerminalServices {
 
 /*
 My Questions: 
-- limit how many rocks/gems are created at a time (don't want so many)
+- limit how many rocks/gems are created at a time (don't want so many) [check!]
 - collision with playerIcon's perimeter, and not center
 - collision in general with the objects and the player icon as a text, and not a rectangle
 - distinguish between rocks and gems when adding/subtracting from the score
