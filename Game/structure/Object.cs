@@ -24,8 +24,6 @@ class ObjectClass {
 }
 
 
-
-
 class ColoredObject: ObjectClass {
     // color
     public Color Color { get; set; }

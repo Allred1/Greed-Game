@@ -16,9 +16,9 @@ class TerminalServices {
 
 
         // configure the player icon
-        var playerPosition = new Vector2(ScreenWidth / 2, ScreenHeight - 30);
+        var playerPosition = new Vector2(ScreenWidth / 2, ScreenHeight - 40);
         var MovementSpeed = 10;
-        
+
 
         Raylib.InitWindow(ScreenWidth, ScreenHeight, "Greed");
         Raylib.SetTargetFPS(60);
@@ -34,6 +34,7 @@ class TerminalServices {
             // Random velocity for gems and rocks
             var randomY = Random.Next(3);
             var randomX = Random.Next(0);
+
             
             // start at the top of the screen
             var startAtTop = ScreenHeight - ScreenHeight - 30;
@@ -77,6 +78,7 @@ class TerminalServices {
 
             // begin the drawings of each of the objects
             foreach (var obj in Objects) {
+                // probably have the timing fuction here
                 obj.Draw();
             }
 
@@ -110,7 +112,7 @@ class TerminalServices {
 
     
             // draw the Player         
-            Raylib.DrawText("#", (int)playerPosition.X, (int)playerPosition.Y, 25, Color.WHITE);
+            Raylib.DrawText("#", (int)playerPosition.X, (int)playerPosition.Y, 20, Color.WHITE);
             
 
 
@@ -122,3 +124,13 @@ class TerminalServices {
         Raylib.CloseWindow();
     }
 }
+
+
+/*
+My Questions: 
+- limit how many rocks/gems are created at a time (don't want so many)
+- collision with playerIcon's perimeter, and not center
+- collision in general with the objects and the player icon as a text, and not a rectangle
+- distinguish between rocks and gems when adding/subtracting from the score
+- guidance on how to declare raylib colors, put them in a list, and draw the rocks/gems as random colors
+*/
