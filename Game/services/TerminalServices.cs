@@ -28,12 +28,13 @@ class TerminalServices {
 
         while (!Raylib.WindowShouldClose())
         {            
+
             // Randomly add gems and rocks objects
             var whichType = Random.Next(2);
             // Random velocity for gems and rocks
             var randomY = Random.Next(3);
             var randomX = Random.Next(0);
-
+            
             
             // start at the top of the screen
             var startAtTop = ScreenHeight - ScreenHeight - 30;
@@ -83,7 +84,8 @@ class TerminalServices {
                 playerPosition.X -= MovementSpeed;
             }
 
-            
+
+
 
             // begin the drawings of each of the objects
             foreach (var obj in Objects.ToList()) {
@@ -121,11 +123,12 @@ class TerminalServices {
                     Objects.Remove(obj);
                 }
             }
-        
+            
     
             // draw the Player         
             // Raylib.DrawRectangle((int)playerRectangle.x, (int)playerRectangle.y, (int)playerRectangle.width, (int)playerRectangle.height, Color.GREEN);
             Raylib.DrawText("#", (int)playerPosition.X, (int)playerPosition.Y, 20, Color.WHITE);
+
         }
         Raylib.CloseWindow();
     }
