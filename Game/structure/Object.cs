@@ -6,6 +6,9 @@ class ObjectClass {
     public Vector2 Position { get; set; } = new Vector2(0, 0);
     public Vector2 Velocity { get; set; } = new Vector2(0, 0);
 
+    // 
+    public bool isGem;
+
 
     // drawing
     virtual public void Draw() {
