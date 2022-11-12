@@ -2,6 +2,8 @@ using Raylib_cs;
 using System.Numerics;
 
 
+
+
 class ObjectClass {
     public Vector2 Position { get; set; } = new Vector2(0, 0);
     public Vector2 Velocity { get; set; } = new Vector2(0, 0);
@@ -31,6 +33,11 @@ class ColoredObject: ObjectClass {
     // color
     public Color Color { get; set; }
     public ColoredObject(Color color) {
+        //creat color list
+        // add individually raylib colors ("Color.BLUE")
+
+        // make function to return random color from list
+        // randomColor = color;
         Color = color;
     }    
 }

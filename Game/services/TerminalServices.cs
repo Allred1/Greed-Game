@@ -160,7 +160,6 @@ class TerminalServices {
             Raylib.DrawText("#", (int)playerPosition.X, (int)playerPosition.Y, 20, Color.WHITE);
             
 
-
             // We'll be checking for collisions with the rocks and gems, and with conditional statements determine what happens to the score.    
 
             // timer function will be helpful in ditributing the rocks and gems evenly and slowly
