@@ -10,7 +10,6 @@ class TerminalServices {
         var ScreenHeight = 480;
         var ScreenWidth = 800;
         var Objects = new List<ObjectClass>();
-        var Masks = new List<Raylib_cs.Rectangle>();
         int score = 0;
         var Random = new Random();
         var timerCounter = 0;
