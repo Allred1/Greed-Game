@@ -45,7 +45,7 @@ class TerminalServices {
                 case 0: 
                     if (timerCounter == 10) {
                         Console.WriteLine("Creating a gem");
-                        var gem = new Gems(Color.WHITE, 25);
+                        var gem = new Gems(Color.WHITE, 25); 
                         gem.Position = position;
                         gem.Velocity = new Vector2(randomX, randomY);
                         gem.isGem = true;
